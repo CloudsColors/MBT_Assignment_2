@@ -152,29 +152,29 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
     @Override
     public void e_AddWeek(){
         System.out.println("Running: e_AddWeek");
-        nrOfDaysAddedOrSubtracted++;
-        adpt.addDay();
+        nrOfDaysAddedOrSubtracted += 7 ;
+        adpt.addWeek();
     }
 
     @Override
     public void e_AddMonth(){
         System.out.println("Running: e_AddMonth");
-        nrOfDaysAddedOrSubtracted++;
-        adpt.addDay();
+        nrOfDaysAddedOrSubtracted  += adpt.daysInMonth();
+        adpt.addMonth();
     }
 
     @Override
     public void e_SubtractWeek(){
         System.out.println("Running: e_SubtractWeek");
-        nrOfDaysAddedOrSubtracted--;
-        adpt.subtractDay();
+        nrOfDaysAddedOrSubtracted -= 7;
+        adpt.subtractWeek();
     }
 
     @Override
     public void e_SubstractMonth(){
         System.out.println("Running: e_SubtractMonth");
-        nrOfDaysAddedOrSubtracted--;
-        adpt.subtractDay();
+        nrOfDaysAddedOrSubtracted -= adpt.previousDaysInMonth();
+        adpt.subtractMonth();
     }
 
     /* Tests */
