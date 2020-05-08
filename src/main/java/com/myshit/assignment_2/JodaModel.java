@@ -71,6 +71,28 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
         return;
     }
 
+    //Newly Added 07/05/2020
+    @Override
+    public void v_AddedWeekToObj(){
+        return;
+    }
+
+    @Override
+    public void v_DecreaseWeekToObj(){
+        return;
+    }
+
+    @Override
+    public void v_DecreaseMonthToObj(){
+        return;
+    }
+
+    @Override
+    public void v_AddedMonthToObj(){
+        return;
+    }
+
+
     /* Edges */
 
     @Override
@@ -116,7 +138,7 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
     @Override
     public void e_CheckDaysCorrect(){
         System.out.println("Running: e_CheckDaysCorrect");
-        System.out.println("Number of days between NAO:"+nrOfDaysBetweenNowAndObject+" Number of days AOS"+nrOfDaysAddedOrSubtracted);
+        //System.out.println("Number of days between NAO:"+nrOfDaysBetweenNowAndObject+" Number of days AOS"+nrOfDaysAddedOrSubtracted);
         assertEquals(nrOfDaysBetweenNowAndObject, nrOfDaysAddedOrSubtracted);
     }
 
@@ -124,6 +146,35 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
     public void e_NumberOfDays(){
         System.out.println("Running: e_NumberOfDays");
         nrOfDaysBetweenNowAndObject = adpt.numberOfDaysBetweenNowAndObject();
+    }
+
+    //Newly Add 07/05/2020
+    @Override
+    public void e_AddWeek(){
+        System.out.println("Running: e_AddWeek");
+        nrOfDaysAddedOrSubtracted++;
+        adpt.addDay();
+    }
+
+    @Override
+    public void e_AddMonth(){
+        System.out.println("Running: e_AddMonth");
+        nrOfDaysAddedOrSubtracted++;
+        adpt.addDay();
+    }
+
+    @Override
+    public void e_SubtractWeek(){
+        System.out.println("Running: e_SubtractWeek");
+        nrOfDaysAddedOrSubtracted--;
+        adpt.subtractDay();
+    }
+
+    @Override
+    public void e_SubstractMonth(){
+        System.out.println("Running: e_SubtractMonth");
+        nrOfDaysAddedOrSubtracted--;
+        adpt.subtractDay();
     }
 
     /* Tests */
