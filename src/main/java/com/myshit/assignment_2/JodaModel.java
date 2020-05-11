@@ -12,6 +12,7 @@ import org.graphwalker.core.machine.ExecutionContext;
 import org.graphwalker.core.generator.RandomPath;
 import org.graphwalker.java.annotation.GraphWalker;
 import org.graphwalker.java.test.TestBuilder;
+import org.graphwalker.java.test.TestExecutor;
 
 import org.junit.Test;
 
