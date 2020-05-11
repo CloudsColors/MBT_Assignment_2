@@ -174,10 +174,10 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
     public void e_SubstractMonth(){
         System.out.println("Running: e_SubtractMonth");
         if(adpt.dayOfMonth() > adpt.previousDaysInMonth()){
-            
+            nrOfDaysAddedOrSubtracted -= adpt.dayOfMonth();
+        }else{
+            nrOfDaysAddedOrSubtracted -= adpt.previousDaysInMonth();
         }
-
-        nrOfDaysAddedOrSubtracted -= adpt.previousDaysInMonth();
         adpt.subtractMonth();
     }
 
