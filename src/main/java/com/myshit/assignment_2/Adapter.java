@@ -49,6 +49,11 @@ public class Adapter {
         return previousMonth.dayOfMonth().getMaximumValue();   
     }
 
+    public int nextDaysInMonth(){
+        LocalDate nextMonth = date.plusMonths(1);
+        return nextMonth.dayOfMonth().getMaximumValue();   
+    }
+
     public int daysInMonth(){
         return date.dayOfMonth().getMaximumValue();    
     }
