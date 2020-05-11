@@ -53,6 +53,10 @@ public class Adapter {
         return date.dayOfMonth().getMaximumValue();    
     }
 
+    public int dayOfMonth(){
+        return date.dayOfMonth().get();
+    }
+
     public void subtractMonth(){
         date = date.minusMonths(1);
     }
