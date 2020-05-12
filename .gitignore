@@ -1,6 +1,8 @@
 .vscode/
+.idea/
 .settings/
 .project
 .classpath
 .factorypath
 target/
+assignment_2.iml

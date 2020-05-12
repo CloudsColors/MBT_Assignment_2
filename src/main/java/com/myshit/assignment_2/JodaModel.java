@@ -25,6 +25,7 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
     private int dayOfWeekInt;
     private int nrOfDaysAddedOrSubtracted;
     private int nrOfDaysBetweenNowAndObject;
+    private boolean checkLeap;
 
     private enum DayStringFromInt{
         Monday,
@@ -39,7 +40,7 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
     /* Verteces */
 
     @Override
-    public void v_DateTimeObject(){
+    public void v_LocalDateObject(){
         return;
     }
 
@@ -94,6 +95,11 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
         return;
     }
 
+    @Override
+    public void v_LeapYearBoolean(){
+        return;
+    }
+
 
     /* Edges */
 
@@ -140,8 +146,8 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
     @Override
     public void e_CheckDaysCorrect(){
         System.out.println("Running: e_CheckDaysCorrect");
-        //System.out.println("Number of days between NAO:"+nrOfDaysBetweenNowAndObject+" Number of days AOS"+nrOfDaysAddedOrSubtracted);
-        assertEquals(nrOfDaysBetweenNowAndObject, nrOfDaysAddedOrSubtracted);
+        //nrOdDaysAdded.. our variable to keep tabs on the amount of days added or subtracted 
+        assertEquals(nrOfDaysAddedOrSubtracted, nrOfDaysBetweenNowAndObject);
     }
 
     @Override
@@ -185,6 +191,17 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
             nrOfDaysAddedOrSubtracted -= adpt.previousDaysInMonth();
         }
         adpt.subtractMonth();
+    }
+
+    @Override
+    public void e_IsItLeap(){
+        checkLeap = adpt.isLeap();
+
+    }
+
+    @Override
+    public void e_CheckLeap(){
+        assertEquals(365 < adpt.getNumOfDaysInYear(), checkLeap);
     }
 
     /* Tests */
