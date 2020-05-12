@@ -27,6 +27,8 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
     private int nrOfDaysAddedOrSubtracted;
     private int nrOfDaysBetweenNowAndObject;
     private boolean checkLeap;
+    private int monthOfYear;
+    private String monthOfYearText;
 
     private enum DayStringFromInt{
         Monday,
@@ -36,6 +38,21 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
         Friday,
         Saturday,
         Sunday
+    }
+
+    private enum MonthStringFromInt{
+        January,
+        February,
+        March,
+        April,
+        May,
+        June,
+        July,
+        August,
+        September,
+        October,
+        November,
+        December
     }
 
     /* Verteces */
@@ -120,21 +137,26 @@ public class JodaModel extends ExecutionContext implements ExampleModel {
     }
 
     @Override
-    public void e_GetDayAsString(){
+    public void e_GetDateAsString(){
         System.out.println("Running: e_GetDayAsString");
         dayOfWeekText = adpt.getDayOfWeekAsString();
+        monthOfYearText = adpt.getMonthOfYearAsString();
     }
 
     @Override
-    public void e_GetDayAsInt(){
+    public void e_GetDateAsInt(){
         System.out.println("Running: e_GetDayAsInt");
         dayOfWeekInt = adpt.getDayOfWeekAsInt();
+        monthOfYear = adpt.getMonthOfYearAsInt();
     }
 
     @Override
     public void e_CheckCorrectIntAndString(){
         System.out.println("Running: e_CheckCorrectIntAndString");
+        // Checking whether or not the int given by the object regarding the weekday, represents the correct string we get (1 = monday, 2 = tuesday etc..)
         assertEquals(DayStringFromInt.values()[dayOfWeekInt-1].toString(), dayOfWeekText.toString());
+        // Checking whether or not the int given by the object regarding the month, represents the correct string we get (1 = January, 2 = February etc..)
+        assertEquals(MonthStringFromInt.values()[monthOfYear-1].toString(), monthOfYearText.toString());
     }
 
     @Override

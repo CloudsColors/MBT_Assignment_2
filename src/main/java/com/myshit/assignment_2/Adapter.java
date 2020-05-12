@@ -33,6 +33,14 @@ public class Adapter {
         return date.dayOfWeek().getAsText();
     }
 
+    public int getMonthOfYearAsInt(){
+        return date.monthOfYear().get();
+    }
+
+    public String getMonthOfYearAsString(){
+        return date.monthOfYear().getAsText();
+    }
+
     public void subtractDay(){
         date = date.minusDays(1);
     }
